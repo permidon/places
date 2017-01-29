@@ -33,7 +33,10 @@
           <span class="tag-line hidden-phone">Friendly Places reviews</span>
         </div>
         <div class="span4">
-          <div class="phone-number pull-right"><i class="icon-phone"></i> Call Us: <strong>1 (800) 765 4321</strong></div><!--/phone-number-->
+          <ul class="inline pull-right">
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          </ul>
         </div>
       </div>
     </div>
