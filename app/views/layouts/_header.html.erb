@@ -10,9 +10,13 @@
         </button>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><a href="index.html"><i class="icon-home"></i></a></li>
-            <li><a href="contact.html" title="About us">About us</a></li>
-            <li><a href="contact.html" title="Contact us">Contact us</a></li>
+            <li>
+              <%= link_to root_path do %>
+                  <i class="icon-home"></i>
+              <% end %>
+            </li>
+            <li><%= link_to "About us", about_us_path %></li>
+            <li><%= link_to "Contact us", contact_us_path %></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
@@ -23,7 +27,9 @@
     <div class="container">
       <div class="row">
         <div class="span8">
-          <a class="brand" href="index.html"><span class="logo-text">Places</span></a>
+          <span class="logo-text">
+            <%= link_to "Places", root_path, class: "brand" %>
+          </span>
           <span class="tag-line hidden-phone">Friendly Places reviews</span>
         </div>
         <div class="span4">
