@@ -3,10 +3,10 @@
 /* ==========================================================
 ! General
 ========================================================== */
-body {
-	background: #f7f7f7;
-	color: #888;
-}
+/*body {*/
+	/*background: #f7f7f7;*/
+	/*color: #888;*/
+/*}*/
 a {
 	color: #5FB000;
 	outline: 0;
@@ -274,7 +274,7 @@ a.brand {
 	background: #fff;
 	position: relative;
 	margin-bottom: 30px;
-	border-bottom: 2px solid #EAEAEA;
+	/*border-bottom: 2px solid #EAEAEA;*/
 }
 .prop-info .prop-title {
 	font-size: 18px;
