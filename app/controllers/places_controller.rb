@@ -21,6 +21,11 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @reviews = Review.where(place_id: @place)
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
   end
 
   private
