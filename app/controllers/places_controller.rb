@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
   end
@@ -9,8 +10,12 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.save
-    redirect_to @place
+    if @place.save
+      redirect_to @place
+    else
+      flash[:danger] = @place.errors.full_messages.to_sentence
+      render 'new'
+    end
   end
 
   def show
