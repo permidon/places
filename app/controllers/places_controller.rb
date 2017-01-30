@@ -20,12 +20,13 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @reviews = Review.where(place_id: @place)
   end
 
   private
 
   def place_params
-    params.require(:place).permit(:name, :description, :address1, :address2, :sity,
+    params.require(:place).permit(:name, :description, :address1, :address2, :city,
                                   :state, :zipcode, :country, :phone, :email, :category_id)
   end
 

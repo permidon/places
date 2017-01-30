@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :places do
     resources :reviews, except: [:index, :show]
   end
-  
+
   root 'places#index'
 
   match '/about_us',   to: 'pages#about_us',   via: :get

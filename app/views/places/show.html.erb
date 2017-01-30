@@ -47,7 +47,12 @@
             </ul>
           </div>
           <div class="clearfix padding30">
+            <%= link_to "Write a review", new_place_review_path(@place), class: "btn btn-small btn-realto" %>
             <h3>Reviews</h3>
+            <% @reviews.each do |review| %>
+              <%= review.rating %><br>
+              <%= review.comment %><br>
+            <% end %>
             <p>No reviews yet</p>
           </div>
         </div>
