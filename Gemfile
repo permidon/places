@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug', platform: :mri
