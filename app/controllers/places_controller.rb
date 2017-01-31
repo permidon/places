@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
 
   def index
+    @places = Place.all
   end
 
   def new
@@ -29,7 +30,12 @@ class PlacesController < ApplicationController
   end
 
   def search
-    @places = Place.search(params)
+    if params[:category].blank?
+      @places = Place.all
+    else
+      @places = Place.search(params)
+    end
+
   end
 
   private
