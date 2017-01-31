@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'geocoder'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platform: :mri

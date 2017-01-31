@@ -10,9 +10,12 @@
                 <div class="holder">
                   <a class="overlay" href="#" title="property title">
                     <span class="more"></span>
-                    <img alt="image" class="media-object" src="http://placehold.it/370x210">
+                    <% if place.image_url.present? %>
+                        <%= link_to image_tag(place.image_url.to_s), place %>
+                    <% else %>
+                         <%= link_to image_tag("http://placehold.it/370x210"), place  %>
+                    <% end %>
                   </a>
-                  <span class="prop-tag">For Sale</span>
                   <div class="prop-info">
                     <h3 class="prop-title"><%= link_to place.name, place_path(place) %></h3>
                     <ul class="more-info clearfix">
