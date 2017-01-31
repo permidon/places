@@ -28,6 +28,10 @@ class PlacesController < ApplicationController
     end
   end
 
+  def search
+    @places = Place.search(params)
+  end
+
   private
 
   def place_params

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :places do
     resources :reviews, except: [:index, :show]
+    collection do
+      get 'search'
+    end
   end
 
   root 'places#index'
