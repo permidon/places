@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    @hotels = Place.where(category_id: 1)
+    @restaurants = Place.where(category_id: 2)
+    @cafes = Place.where(category_id: 3)
   end
 
   def new

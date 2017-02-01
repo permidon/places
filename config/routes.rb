@@ -13,5 +13,8 @@ Rails.application.routes.draw do
 
   match '/about_us',   to: 'pages#about_us',   via: :get
   match '/contact_us', to: 'pages#contact_us', via: :get
+  match '/hotels',     to: 'pages#hotels',     via: :get
+  match '/restaurants',to: 'pages#restaurants',via: :get
+  match '/cafes',      to: 'pages#cafes',      via: :get
 
 end
