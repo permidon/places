@@ -3,15 +3,11 @@
     <div class="span8">
       <div class="box-container">
         <div class="cycle-slideshow">
-
-
           <% if @place.image_url.present? %>
             <%= image_tag @place.image_url %>
           <% else %>
               <img alt="image" src="http://placehold.it/770x437" class="media-object">
           <% end %>
-
-
         </div><!-- .cycle-slideshow -->
         <div id="adv-custom-pager"></div>
         <div class="clearfix">
