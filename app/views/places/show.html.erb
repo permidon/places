@@ -4,7 +4,7 @@
       <div class="box-container">
         <div class="cycle-slideshow">
           <% if @place.image_url.present? %>
-            <%= image_tag @place.image_url %>
+              <%= image_tag @place.image_url %>
           <% else %>
               <img alt="image" src="http://placehold.it/770x437" class="media-object">
           <% end %>
@@ -14,8 +14,8 @@
           <div class="clearfix padding30">
             <h2 class="prop-title pull-left margin0"><%= @place.name %>
               <% if current_user.try(:admin?) %>
-                <small><%= link_to "Edit", edit_place_path, class: "btn btn-primary btn-mini" %></small>
-                <small><%= link_to "Delete", place_path, method: :delete, data: {confirm: "Are you sure you want to do it?"}, class: "btn btn-danger btn-mini" %></small>
+                  <small><%= link_to "Edit", edit_place_path, class: "btn btn-primary btn-mini" %></small>
+                  <small><%= link_to "Delete", place_path, method: :delete, data: {confirm: "Are you sure you want to do it?"}, class: "btn btn-danger btn-mini" %></small>
               <% end %>
             </h2>
             <span class="prop-price pull-right serif italic star-rating" data-score=<%= @avg_rating %>></span>
@@ -83,81 +83,15 @@
         <h3 class="widget-title">Map &amp; Directions</h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12081.47821202897!2d<%= @place.longitude %>!3d<%= @place.latitude %>!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1486005356559" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
-      <div class="agent-box widget box-container clearfix padding30">
-        <div class="">
-          <div class="pull-left">
-            <img alt="image" class="media-object agent-avatar" src="images/agent-01.jpg">
-          </div>
-          <div class="pull-left">
-            <h3>Contact Agent</h3>
-            <ul>
-              <li>John Doe</li>
-              <li><a href="#">john.doe@realto.com</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <!-- .agent-box -->
-      <div class="search-form widget">
-        <p>Find your new home</p>
-        <form action="#" class="row-fluid" method="post">
-          <select class="span12 select" name="type">
-            <option>Location</option>
-            <option value="#">New York</option>
-            <option value="#">Los Angeles</option>
-            <option value="#">Washington</option>
-            <option value="#">Chicago</option>
-            <option value="#">Miami</option>
-          </select>
-          <select class="span12 select" name="type">
-            <option>Property Type</option>
-            <option value="#">Any</option>
-            <option value="#">Single Family Home</option>
-            <option value="#">Condo</option>
-            <option value="#">Apartment</option>
-            <option value="#">Loft</option>
-          </select>
-          <select class="span6 select pull-left" name="beds">
-            <option>Beds</option>
-            <option value="#">1+ Beds</option>
-            <option value="#">2+ Beds</option>
-            <option value="#">3+ Beds</option>
-            <option value="#">4+ Beds</option>
-            <option value="#">5+ Beds</option>
-          </select>
-          <select class="span6 select pull-right" name="baths">
-            <option>Baths</option>
-            <option value="#">1+ Baths</option>
-            <option value="#">2+ Baths</option>
-            <option value="#">3+ Baths</option>
-            <option value="#">4+ Baths</option>
-            <option value="#">5+ Baths</option>
-          </select>
-          <select class="span12 select clearfix" name="status">
-            <option>Select Status</option>
-            <option value="#">For Rent</option>
-            <option value="#">For Sale</option>
-          </select>
-          <select class="span6 select pull-left" name="price-from">
-            <option>Price from</option>
-            <option value="#">from $100.000</option>
-            <option value="#">from $200.000</option>
-            <option value="#">from $300.000</option>
-            <option value="#">from $400.000</option>
-            <option value="#">from $500.000</option>
-          </select>
-          <select class="span6 select pull-right" name="price-to">
-            <option>Price to</option>
-            <option value="#">to $100.000</option>
-            <option value="#">to $200.000</option>
-            <option value="#">to $300.000</option>
-            <option value="#">to $400.000</option>
-            <option value="#">to $500.000</option>
-          </select>
-          <div class="clearfix">
-            <button class="btn pull-right span6 btn-realto-form btn-large" type="submit">Search</button>
-          </div>
-        </form>
+      <div class="search-form">
+        <p>Find a friendly place</p>
+        <%= form_tag search_places_path, method: :get do |f| %>
+            <%= text_field_tag :search, nil, placeholder: "palace, italian, beer, etc." %>
+            <%= text_field_tag :location, nil, placeholder: "denver, paris, etc." %>
+            <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+            <%= submit_tag 'Search', class: "btn btn-realto span2"  %>
+        <% end %>
       </div>
       <!-- .search-form -->
     </div>
@@ -166,21 +100,3 @@
   <!-- .row -->
 </div>
 <!-- .container -->
-<div class="container">
-  <div class="row">
-    <div class="span12 box-container">
-      <div class="row adv-message clearfix">
-        <div class="pull-left span7">
-          <p class="upper-line serif italic">Realto xHTML/CSS Template is The
-            Best Solution To Sell House Online</p>
-          <p class="lower-line">This template is appropriate for Real Estate
-            Company, who need to do their business online via websites.</p>
-        </div>
-        <!-- .pull-left -->
-        <a class="pull-right btn btn-large btn-realto span3" href="#" title="Buy It Now">Buy
-          It Now!</a>
-      </div>
-      <!-- .adv-message  -->
-    </div>
-  </div>
-</div>

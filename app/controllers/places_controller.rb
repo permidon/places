@@ -4,10 +4,8 @@ class PlacesController < ApplicationController
   before_action :is_admin?, only: [:edit, :update, :destroy]
 
   def index
-    # visitor_latitude = request.location.latitude
-    # visitor_longitude = request.location.longitude
-    visitor_latitude = 44.9778
-    visitor_longitude = -93.2650
+    visitor_latitude = request.location.latitude
+    visitor_longitude = request.location.longitude
 
     @places = Place.near([visitor_latitude, visitor_longitude], 20)
     @hotels = Place.where(category_id: 1).near([visitor_latitude, visitor_longitude], 20)

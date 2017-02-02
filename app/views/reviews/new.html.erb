@@ -1,5 +1,20 @@
-<%= form_for [@place, @review] do |f| %>
-    <%= f.number_field :rating, value: 1, min: 1, max: 5 %><br />
-    <%= f.text_area :comment %><br />
-    <%= f.submit class: "btn span2 btn-realto-form btn-large" %>
-<% end %>
+<div class="container page-content">
+  <div class="row">
+    <div class="span12">
+      <div class="box-container">
+        <div style="margin-left: auto; margin-right: auto; width: 16em">
+          <h2 class="page-title", style="text-align: center">Write a review</h2>
+          <%= form_for [@place, @review] do |f| %>
+              <%= f.label:rating %>
+              <%= f.number_field :rating, value: 1, min: 1, max: 5 %><br />
+
+              <%= f.label :comment %>
+              <%= f.text_area :comment %><br />
+
+              <%= f.submit class: "btn span2 btn-realto-form btn-large" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
