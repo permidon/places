@@ -41,7 +41,7 @@
   <div class="container">
   <div class="row">
     <div class="span12">
-    <h2 class="secion-title">Properties</h2>
+    <h2 class="secion-title">Last added</h2>
     </div>
   </div>
 
@@ -98,6 +98,11 @@
                           <%= link_to image_tag("http://placehold.it/370x210"), place  %>
                       <% end %>
                     </a>
+                    <% if place.reviews.present? %>
+                        <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+                    <% else %>
+                        <span class="prop-tag">No reviews yet</span>
+                    <% end %>
                     <div class="prop-info">
                       <h3 class="prop-title"><%= link_to place.name, place %></h3>
                       <ul class="more-info clearfix">

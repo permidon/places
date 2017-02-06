@@ -6,13 +6,15 @@ class PlacesController < ApplicationController
   def index
     visitor_latitude = request.location.latitude
     visitor_longitude = request.location.longitude
+    # visitor_latitude = 44.9778
+    # visitor_longitude = -93.2650
 
     @places = Place.near([visitor_latitude, visitor_longitude], 20)
     @hotels = Place.where(category_id: 1).near([visitor_latitude, visitor_longitude], 20)
     @restaurants = Place.where(category_id: 2).near([visitor_latitude, visitor_longitude], 20)
     @cafes = Place.where(category_id: 3).near([visitor_latitude, visitor_longitude], 20)
   end
-
+ 
   def new
     @place = Place.new
   end
